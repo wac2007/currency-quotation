@@ -12,7 +12,7 @@
     "128": "icon-128.png"
   },
   "host_permissions": ["https://economia.awesomeapi.com.br/*"],
-  "permissions": ["alarms"],
+  "permissions": ["alarms", "storage"],
   "externally_connectable": {
     "matches": ["*://economia.awesomeapi.com.br/*"]
   },
