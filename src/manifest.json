@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Cotações",
+  "description": "Acompanhe as cotações de moedas estrangeiras",
+  "background": { "service_worker": "background.bundle.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon-32.png"
+  },
+  "icons": {
+    "32": "icon-32.png",
+    "128": "icon-128.png"
+  },
+  "host_permissions": ["https://economia.awesomeapi.com.br/*"],
+  "permissions": ["alarms"],
+  "externally_connectable": {
+    "matches": ["*://economia.awesomeapi.com.br/*"]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["content.styles.css", "icon-128.png", "icon-32.png"],
+      "matches": []
+    }
+  ]
+}
