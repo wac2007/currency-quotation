@@ -61,55 +61,68 @@ const ConfigMode = ({
     setDefaultCurrency(currency);
   }, []);
   return (
-    <div>
+    <div className="block">
       <h1>Configuração</h1>
-      {availableCurrencies?.length < 1 && <p>Loading...</p>}
-      {availableCurrencies?.length > 0 && (
-        <>
-          <p>Selecione a moeda base</p>
-          <select
-            ref={baseSelectRef}
-            value={baseCurrency}
-            onChange={onChangeBaseCurrency}
-          >
-            {availableCurrencies.map(([currency, name]) => (
-              <option key={currency} value={currency}>
-                {currency} - {name}
-              </option>
-            ))}
-          </select>
-        </>
-      )}
+      <div className="featured">
+        {availableCurrencies?.length < 1 && <p>Loading...</p>}
+        {availableCurrencies?.length > 0 && (
+          <>
+            <h2>Selecione a moeda base</h2>
+            <select
+              ref={baseSelectRef}
+              value={baseCurrency}
+              onChange={onChangeBaseCurrency}
+            >
+              {availableCurrencies.map(([currency, name]) => (
+                <option key={currency} value={currency}>
+                  {currency} - {name}
+                </option>
+              ))}
+            </select>
+          </>
+        )}
+      </div>
 
       <h2>Moedas adicionadas</h2>
-      <ul>
-        {currencyList.map((currency) => (
-          <li key={currency}>
-            {currency}
-            <button onClick={() => removeCurrency(currency)}>Remove</button>
-            {defaultCurrency !== currency && (
-              <button onClick={() => handleDefaultCurrency(currency)}>
-                Set as default
-              </button>
-            )}
-          </li>
-        ))}
-      </ul>
-      {availableCurrencies?.length > 0 && (
-        <>
-          <p>Selecione a moeda para adicionar</p>
-          <select ref={listSelectRef}>
-            {availableCurrencies.map(([currency, name]) => (
-              <option key={currency} value={currency}>
-                {currency} - {name}
-              </option>
-            ))}
-          </select>
-          <button onClick={addCurrency}>Adicionar</button>
-        </>
-      )}
-      <button onClick={handleSave}>Salvar</button>
-      <button onClick={backCallback}>Voltar</button>
+      <div className="block currencies">
+        <ul>
+          {currencyList.map((currency) => (
+            <li key={currency}>
+              <label>{currency}</label>
+              {defaultCurrency !== currency && (
+                <button
+                  className="secondary"
+                  onClick={() => handleDefaultCurrency(currency)}
+                >
+                  Definir Padrão
+                </button>
+              )}
+              <button onClick={() => removeCurrency(currency)}>Remover</button>
+            </li>
+          ))}
+        </ul>
+        {availableCurrencies?.length > 0 && (
+          <>
+            <h3>Selecione as moedas para adicionar</h3>
+            <select ref={listSelectRef}>
+              {availableCurrencies.map(([currency, name]) => (
+                <option key={currency} value={currency}>
+                  {currency} - {name}
+                </option>
+              ))}
+            </select>
+            <button className="secondary" onClick={addCurrency}>
+              Adicionar
+            </button>
+          </>
+        )}
+      </div>
+      <div className="button-row">
+        <button onClick={handleSave} className="primary">
+          Salvar
+        </button>
+        <button onClick={backCallback}>Voltar</button>
+      </div>
     </div>
   );
 };

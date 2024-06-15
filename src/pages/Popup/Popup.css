@@ -1,16 +1,25 @@
+button {
+  border: none;
+  padding: 8px 16px;
+  background: #dedede;
+}
 .App {
-  position: absolute;
+  /* position: absolute;
   top: 0px;
   bottom: 0px;
   left: 0px;
   right: 0px;
   text-align: center;
-  height: 100%;
-  padding: 10px;
-  background-color: #282c34;
+  height: 100%;*/
+  /* padding: 10px 0; */
+  display: block;
+  /* align-items: center;
+  justify-content: center; */
+  /* width: 100%; */
+  padding: 0 20px;
 }
 
-.App-logo {
+/* .App-logo {
   height: 30vmin;
   pointer-events: none;
 }
@@ -42,4 +51,101 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.block {
+  display: block;
+}
+
+.block-flex {
+  display: flex;
+}
+
+.featured {
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.featured .currency {
+  border: 1px solid #ddd;
+  width: 45%;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.featured .currency code {
+  display: block;
+  text-align: center;
+  color: gold;
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 16px 0 8px;
+}
+h3 {
+  margin: 8px 0;
+}
+
+.currencies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  font-size: 14px;
+}
+
+.currencies .currency {
+  display: flex;
+  margin: 10px 8px 10px 0;
+  width: 30%;
+}
+
+.currencies .currency code {
+  padding-left: 10px;
+}
+
+.currencies ul {
+  list-style: none;
+  padding: 0;
+}
+.currencies ul li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.currencies ul li label {
+  margin-right: auto;
+}
+.currencies ul li button {
+  margin: 0 16px 0 16px;
+  padding: 6px;
+}
+.currencies ul li button:last-child {
+  margin-left: 0px;
+}
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0;
+}
+.button-row button {
+  margin-left: 20px;
+}
+button.primary {
+  background: #248091;
+  color: white;
+}
+button.secondary {
+  background: gold;
+  color: #222;
+}
+
+select {
+  padding: 8px;
+  margin: 0 0 10px;
+  width: 100%;
 }
